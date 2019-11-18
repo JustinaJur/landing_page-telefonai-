@@ -2,31 +2,7 @@
   flex-direction: $direction;
 }
 
-@mixin grid-place-items($value...) {
-  place-items: $value;
-}
-
 @mixin grid-template-columns($columns...) {
   -ms-grid-columns: $columns;
   grid-template-columns: $columns;
-}
-
-@mixin grid-template-rows($rows...) {
-  -ms-grid-rows: $rows;
-  grid-template-rows: $rows;
-}
-
-@mixin grid-gap($gap) {
-  -ms-grid-gap: $gap;
-  grid-gap: $gap;
-}
-
-@mixin grid-align-self($value) {
-  -ms-grid-row-align: $value;
-  align-self: $value;
-}
-
-@mixin grid-justify-self($value) {
-  -ms-grid-column-align: $value;
-  justify-self: $value;
 }
