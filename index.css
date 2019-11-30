@@ -11,7 +11,7 @@
   display: flex;
 }
 
-.flex-wrap {
+.flex-wrap, .c-navigation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +38,7 @@
           flex-direction: column;
 }
 
-.u-justify-content-space-around {
+.u-justify-content-space-around, .c-navigation {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -48,19 +48,8 @@
   display: grid;
 }
 
-.u-place-items-center {
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-}
-
-.text-decoration-none {
-  text-decoration: none;
-}
-
 a,
 a:visited,
-a:hover,
 a:active {
   color: inherit;
   text-decoration: none;
@@ -74,7 +63,7 @@ hr {
   width: 100%;
 }
 
-.c-container {
+.container {
   padding: 20px 10% 20px 10%;
 }
 
@@ -148,13 +137,6 @@ hr {
 }
 
 .c-navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -185,7 +167,9 @@ hr {
 }
 
 .c-section--main {
-  padding: 20px 10% 20px 10%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40%;
+          flex: 1 1 40%;
 }
 
 .c-section--main-second {
@@ -202,7 +186,6 @@ hr {
 
 .c-section--main-second .c-img--sm {
   margin: 6px 0px 0px 6px;
-  height: 285px;
 }
 
 .c-img--sm-container {
@@ -219,10 +202,21 @@ hr {
 .c-new-reviews {
   color: #ffffff;
   margin: 20px 0px 20px 0px;
+  min-height: 285px;
 }
 
 .c-new-reviews .c-img--sm {
   margin: 6px;
+}
+
+a i:hover {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+}
+
+.c-img:hover {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 .c-img {
@@ -344,10 +338,6 @@ hr {
   color: #999999;
 }
 
-.c-news-container {
-  padding: 20px 10% 20px 10%;
-}
-
 .c-news__articles-container {
   margin-right: 30px;
   -webkit-box-pack: justify;
@@ -382,7 +372,6 @@ hr {
 }
 
 .c-gallery-container .c-title {
-  padding: 20px 10% 20px 10%;
   color: #f0294a;
   margin: 0px;
   padding-bottom: 0px;
@@ -518,18 +507,16 @@ hr {
             align-items: center;
   }
   .c-section--main .c-img--lg {
-    width: 80%;
     margin: 6px;
   }
-  .c-section--main-second {
-    width: 80%;
-  }
   .c-section--main-second .c-img--md {
-    margin: 0px;
+    margin: 0px 6px 0px 6px;
+    height: 285px;
   }
   .c-section--main-second .c-img--sm {
-    -ms-flex-preferred-size: 313px;
-        flex-basis: 313px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%;
   }
   .c-card {
     -webkit-box-orient: vertical;
@@ -540,6 +527,11 @@ hr {
   .c-new-reviews {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .c-new-reviews .c-img {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%;
   }
   .c-title {
     text-align: center;
@@ -592,29 +584,17 @@ hr {
     -ms-grid-column-align: center;
         justify-self: center;
   }
-  .c-section--main .c-img--lg {
-    width: 100%;
-    width: 250px;
-  }
-  .c-section--main .c-section--main-second {
+  .c-section--main-second {
     width: 100%;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  .c-section--main .c-section--main-second .c-img--md {
-    height: 250px;
-  }
-  .c-section--main .c-section--main-second .c-img--sm-container {
+  .c-section--main-second .c-img--sm-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  .c-section--main .c-section--main-second .c-img--sm-container .c-img--sm {
-    margin: 5px 0px 0px 0px;
-    -ms-flex-preferred-size: 250px !important;
-        flex-basis: 250px !important;
   }
   .c-img__title--lg,
   .c-img__title--md {
@@ -623,8 +603,8 @@ hr {
   .c-img--lg,
   .c-img--sm,
   .c-img--md {
-    height: 250px;
-    width: 250px;
+    min-height: 250px;
+    max-height: 250px;
     margin: 0px;
   }
   .c-news__articles-container {
@@ -639,16 +619,14 @@ hr {
             order: 1;
     margin-top: 10px;
   }
-}
-
-@media screen and (max-width: 320px) {
-  .c-header {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+  .c-new-reviews {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
-  .c-header__logo, .c-header__search {
-    -ms-grid-column-align: center;
-        justify-self: center;
+  .c-new-reviews .c-img {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 90%;
+            flex: 1 1 90%;
   }
 }
 /*# sourceMappingURL=index.css.map */
